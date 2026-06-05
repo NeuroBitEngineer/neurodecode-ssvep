@@ -1,0 +1,17 @@
+.DS_Store
+__pycache__/
+.ipynb_checkpoints/
+.venv/
+mne_data/
+mne_config/
+.mne/
+.cache/
+*.pyc
+
+# Personal/private EEG recordings are intentionally not part of this repo.
+private-openvep-data/
+app/private_uploads/
+
+# Generated local outputs
+logs/
+*.log

@@ -1,0 +1,135 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>NeuroDecode SSVEP</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --ink: #152026;
+      --muted: #52636d;
+      --line: #d7e1e5;
+      --accent: #0f766e;
+      --bg: #f7faf9;
+      --panel: #ffffff;
+    }
+
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      color: var(--ink);
+      background: var(--bg);
+      line-height: 1.55;
+    }
+
+    main {
+      max-width: 920px;
+      margin: 0 auto;
+      padding: 56px 24px;
+    }
+
+    h1 {
+      margin: 0 0 10px;
+      font-size: 42px;
+      line-height: 1.1;
+    }
+
+    h2 {
+      margin-top: 34px;
+      font-size: 24px;
+    }
+
+    p {
+      margin: 12px 0;
+    }
+
+    a {
+      color: var(--accent);
+      font-weight: 700;
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    .subtitle {
+      color: var(--muted);
+      font-size: 18px;
+      max-width: 760px;
+    }
+
+    .panel {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 20px;
+      margin-top: 22px;
+    }
+
+    .links {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 14px;
+      margin-top: 18px;
+    }
+
+    .link-card {
+      display: block;
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 16px;
+    }
+
+    .link-card span {
+      display: block;
+      color: var(--muted);
+      font-weight: 400;
+      margin-top: 6px;
+    }
+
+    code {
+      background: #e9f0f1;
+      border-radius: 4px;
+      padding: 2px 5px;
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <h1>NeuroDecode SSVEP</h1>
+    <p class="subtitle">SSVEP EEG decoding from frequency-based representations to reproducible model comparison</p>
+
+    <section class="panel">
+      <h2>Research Question</h2>
+      <p>Can SSVEP EEG signals be transformed into frequency-based representations that reliably decode intended visual targets, and does performance improve when the model is matched to SSVEP physiology?</p>
+      <p>I started from a private OpenBCI/OpenVEP pilot recording, then used the public Wang2016 / Tsinghua SSVEP benchmark for the reproducible results. The private recordings are not included in this repository.</p>
+    </section>
+
+    <h2>Project Files</h2>
+    <div class="links">
+      <a class="link-card" href="notebooks/COGS138_Final_Project_Submission.html">Final Report HTML<span>Rendered report for quick review</span></a>
+      <a class="link-card" href="notebooks/COGS138_Final_Project_Submission.ipynb">Final Report Notebook<span>Notebook version of the report</span></a>
+      <a class="link-card" href="notebooks/COGS138_Public_SSVEP_Expansion_MOABB.html">Detailed Public Analysis HTML<span>Expanded Wang2016 analysis</span></a>
+      <a class="link-card" href="notebooks/COGS138_Public_SSVEP_Expansion_MOABB.ipynb">Detailed Public Analysis Notebook<span>Notebook version of the expanded analysis</span></a>
+      <a class="link-card" href="results/wang2016_expanded_model_comparison.csv">Results CSV<span>Model comparison table</span></a>
+      <a class="link-card" href="https://github.com/NeuroBitEngineer/neurodecode-ssvep">GitHub Repository<span>Code and notebooks</span></a>
+    </div>
+
+    <section class="panel">
+      <h2>Main Result</h2>
+      <p>At 1.2 seconds, parieto-occipital CCA decoded 134 out of 144 selected Wang2016 trials correctly, or 93.1% accuracy. At 4.0 seconds, cross-validated TRCA decoded 144 out of 144 trials correctly. The result supports the idea that SSVEP decoding improves when the representation and model are matched to frequency-locked visual cortex responses.</p>
+    </section>
+
+    <section class="panel">
+      <h2>Reproduce</h2>
+      <p>From the repository root:</p>
+      <p><code>python3 -m venv .venv</code></p>
+      <p><code>.venv/bin/python -m pip install -r requirements.txt</code></p>
+      <p><code>.venv/bin/python scripts/run_wang2016_expansion.py</code></p>
+    </section>
+  </main>
+</body>
+</html>
