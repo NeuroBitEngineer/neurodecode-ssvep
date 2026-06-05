@@ -24,7 +24,7 @@
     }
 
     main {
-      max-width: 920px;
+      max-width: 1040px;
       margin: 0 auto;
       padding: 56px 24px;
     }
@@ -36,7 +36,7 @@
     }
 
     h2 {
-      margin-top: 34px;
+      margin: 0 0 12px;
       font-size: 24px;
     }
 
@@ -57,7 +57,8 @@
     .subtitle {
       color: var(--muted);
       font-size: 18px;
-      max-width: 760px;
+      max-width: none;
+      white-space: nowrap;
     }
 
     .panel {
@@ -95,6 +96,46 @@
       border-radius: 4px;
       padding: 2px 5px;
     }
+
+    .command-block {
+      position: relative;
+      background: #102025;
+      border-radius: 8px;
+      color: #eff7f5;
+      margin-top: 12px;
+      overflow: hidden;
+    }
+
+    .command-block button {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      border: 1px solid #6b8586;
+      border-radius: 8px;
+      background: #ffffff;
+      color: #102025;
+      cursor: pointer;
+      font-weight: 700;
+      padding: 6px 10px;
+    }
+
+    .command-block pre {
+      margin: 0;
+      padding: 44px 16px 16px;
+      overflow-x: auto;
+    }
+
+    .command-block code {
+      background: transparent;
+      color: inherit;
+      padding: 0;
+    }
+
+    @media (max-width: 760px) {
+      .subtitle {
+        white-space: normal;
+      }
+    }
   </style>
 </head>
 <body>
@@ -111,9 +152,9 @@
     <h2>Project Files</h2>
     <div class="links">
       <a class="link-card" href="notebooks/COGS138_Final_Project_Submission.html">Final Report HTML<span>Rendered report for quick review</span></a>
-      <a class="link-card" href="notebooks/COGS138_Final_Project_Submission.ipynb">Final Report Notebook<span>Notebook version of the report</span></a>
+      <a class="link-card" href="https://github.com/NeuroBitEngineer/neurodecode-ssvep/blob/main/notebooks/COGS138_Final_Project_Submission.ipynb">Final Report Notebook<span>Notebook version of the report</span></a>
       <a class="link-card" href="notebooks/COGS138_Public_SSVEP_Expansion_MOABB.html">Detailed Public Analysis HTML<span>Expanded Wang2016 analysis</span></a>
-      <a class="link-card" href="notebooks/COGS138_Public_SSVEP_Expansion_MOABB.ipynb">Detailed Public Analysis Notebook<span>Notebook version of the expanded analysis</span></a>
+      <a class="link-card" href="https://github.com/NeuroBitEngineer/neurodecode-ssvep/blob/main/notebooks/COGS138_Public_SSVEP_Expansion_MOABB.ipynb">Detailed Public Analysis Notebook<span>Notebook version of the expanded analysis</span></a>
       <a class="link-card" href="results/wang2016_expanded_model_comparison.csv">Results CSV<span>Model comparison table</span></a>
       <a class="link-card" href="https://github.com/NeuroBitEngineer/neurodecode-ssvep">GitHub Repository<span>Code and notebooks</span></a>
     </div>
@@ -126,10 +167,29 @@
     <section class="panel">
       <h2>Reproduce</h2>
       <p>From the repository root:</p>
-      <p><code>python3 -m venv .venv</code></p>
-      <p><code>.venv/bin/python -m pip install -r requirements.txt</code></p>
-      <p><code>.venv/bin/python scripts/run_wang2016_expansion.py</code></p>
+      <div class="command-block">
+        <button type="button" id="copy-reproduce">Copy</button>
+        <pre><code id="reproduce-commands">python3 -m venv .venv
+.venv/bin/python -m pip install -r requirements.txt
+.venv/bin/python scripts/run_wang2016_expansion.py</code></pre>
+      </div>
     </section>
   </main>
+  <script>
+    const copyButton = document.getElementById('copy-reproduce');
+    const commandText = document.getElementById('reproduce-commands').innerText;
+
+    copyButton.addEventListener('click', async () => {
+      try {
+        await navigator.clipboard.writeText(commandText);
+        copyButton.innerText = 'Copied';
+        setTimeout(() => {
+          copyButton.innerText = 'Copy';
+        }, 1600);
+      } catch (error) {
+        copyButton.innerText = 'Select text';
+      }
+    });
+  </script>
 </body>
 </html>
