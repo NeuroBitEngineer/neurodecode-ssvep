@@ -71,13 +71,13 @@
 
     .links {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 14px;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 16px;
       margin-top: 18px;
     }
 
     .project-files-heading {
-      margin-top: 46px;
+      margin-top: 72px;
     }
 
     .link-card {
@@ -88,11 +88,84 @@
       padding: 16px;
     }
 
+    .file-group-card {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 18px;
+      min-height: 176px;
+    }
+
+    .file-group-card h3 {
+      margin: 0 0 6px;
+      color: var(--accent);
+      font-size: 20px;
+    }
+
+    .file-group-card p {
+      color: var(--muted);
+      margin: 0 0 16px;
+    }
+
+    .file-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .file-actions a {
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: #f7faf9;
+      padding: 7px 10px;
+      font-size: 14px;
+    }
+
+    .repository-card {
+      grid-column: 1 / -1;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 18px;
+    }
+
+    .repository-card h3 {
+      margin: 0 0 4px;
+      color: var(--accent);
+      font-size: 20px;
+    }
+
+    .repository-card p {
+      color: var(--muted);
+      margin: 0;
+    }
+
+    .repository-card a {
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: #f7faf9;
+      padding: 9px 12px;
+      white-space: nowrap;
+    }
+
     .link-card span {
       display: block;
       color: var(--muted);
       font-weight: 400;
       margin-top: 6px;
+    }
+
+    .research-question-text {
+      max-width: 880px;
+      margin: 18px auto;
+      text-align: center;
+      font-weight: 700;
+      font-size: 20px;
+      line-height: 1.45;
     }
 
     code {
@@ -139,6 +212,19 @@
       .subtitle {
         white-space: normal;
       }
+
+      .links {
+        grid-template-columns: 1fr;
+      }
+
+      .repository-card {
+        display: block;
+      }
+
+      .repository-card a {
+        display: inline-block;
+        margin-top: 14px;
+      }
     }
   </style>
 </head>
@@ -149,18 +235,47 @@
 
     <section class="panel">
       <h2>Research Question</h2>
-      <p>Can SSVEP EEG signals be transformed into frequency-based representations that reliably decode intended visual targets, and does performance improve when the model is matched to SSVEP physiology?</p>
+      <p class="research-question-text">Can SSVEP EEG signals be transformed into frequency-based representations that reliably decode intended visual targets, and does performance improve when the model is matched to SSVEP physiology?</p>
       <p>I started from a private OpenBCI/OpenVEP pilot recording, then used the public Wang2016 / Tsinghua SSVEP benchmark for the reproducible results. The private recordings are not included in this repository.</p>
     </section>
 
     <h2 class="project-files-heading">Project Files</h2>
     <div class="links">
-      <a class="link-card" href="notebooks/COGS138_Final_Project_Submission.html">Final Report HTML<span>Rendered report for quick review</span></a>
-      <a class="link-card" href="https://github.com/NeuroBitEngineer/neurodecode-ssvep/blob/main/notebooks/COGS138_Final_Project_Submission.ipynb">Final Report Notebook<span>Notebook version of the report</span></a>
-      <a class="link-card" href="notebooks/COGS138_Public_SSVEP_Expansion_MOABB.html">Detailed Public Analysis HTML<span>Expanded Wang2016 analysis</span></a>
-      <a class="link-card" href="https://github.com/NeuroBitEngineer/neurodecode-ssvep/blob/main/notebooks/COGS138_Public_SSVEP_Expansion_MOABB.ipynb">Detailed Public Analysis Notebook<span>Notebook version of the expanded analysis</span></a>
-      <a class="link-card" href="results/wang2016_expanded_model_comparison.csv">Results CSV<span>Model comparison table</span></a>
-      <a class="link-card" href="https://github.com/NeuroBitEngineer/neurodecode-ssvep">GitHub Repository<span>Code and notebooks</span></a>
+      <section class="file-group-card">
+        <h3>Final Report</h3>
+        <p>Concise project report and notebook version</p>
+        <div class="file-actions">
+          <a href="notebooks/COGS138_Final_Project_Submission.html">HTML</a>
+          <a href="https://github.com/NeuroBitEngineer/neurodecode-ssvep/blob/main/notebooks/COGS138_Final_Project_Submission.ipynb">Notebook</a>
+        </div>
+      </section>
+
+      <section class="file-group-card">
+        <h3>Public Analysis</h3>
+        <p>Expanded Wang2016 analysis and model table</p>
+        <div class="file-actions">
+          <a href="notebooks/COGS138_Public_SSVEP_Expansion_MOABB.html">HTML</a>
+          <a href="https://github.com/NeuroBitEngineer/neurodecode-ssvep/blob/main/notebooks/COGS138_Public_SSVEP_Expansion_MOABB.ipynb">Notebook</a>
+          <a href="results/wang2016_expanded_model_comparison.csv">CSV</a>
+        </div>
+      </section>
+
+      <section class="file-group-card">
+        <h3>Presentation</h3>
+        <p>Two-minute slide deck and recorded presentation</p>
+        <div class="file-actions">
+          <a href="https://github.com/NeuroBitEngineer/neurodecode-ssvep/blob/main/presentation/2-minute-presentation.pdf">Slides PDF</a>
+          <a href="https://drive.google.com/file/d/1E-Ostksi1mNPeruMitC46OwbDWK5NLei/view?usp=sharing">Video</a>
+        </div>
+      </section>
+
+      <section class="repository-card">
+        <div>
+          <h3>GitHub Repository</h3>
+          <p>Code, notebooks, report exports, and reproducible analysis scripts</p>
+        </div>
+        <a href="https://github.com/NeuroBitEngineer/neurodecode-ssvep">Open Repository</a>
+      </section>
     </div>
 
     <section class="panel">
