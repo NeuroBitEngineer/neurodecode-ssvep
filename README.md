@@ -23,18 +23,20 @@ Simple target-frequency power detects some structure, but SSVEP-specific models 
 
 ```text
 index.html
-notebooks/
-  COGS138_Final_Project_Submission.ipynb
-  COGS138_Final_Project_Submission.html
-  COGS138_Public_SSVEP_Expansion_MOABB.ipynb
-  COGS138_Public_SSVEP_Expansion_MOABB.html
-results/
-  wang2016_expanded_model_comparison.csv
-scripts/
-  run_wang2016_expansion.py
-data/
-  README.md
 requirements.txt
+notebooks/
+	COGS138_Final_Project_Submission.ipynb
+	COGS138_Final_Project_Submission.html
+	COGS138_Public_SSVEP_Expansion_MOABB.ipynb
+	COGS138_Public_SSVEP_Expansion_MOABB.html
+presentation/
+	2-minute-presentation.pdf
+results/
+	wang2016_expanded_model_comparison.csv
+scripts/
+	run_wang2016_expansion.py
+data/
+	README.md
 ```
 
 ## Data
